@@ -24,8 +24,7 @@ def main():
     cols[1], cols[-1] = cols[-1], cols[1]
 
     df = df[cols]
-    df.to_csv(f'Seattle-hourly-weather-{d}.csv')
-
+    df.to_csv(f'./data/weather/Seattle-weather.csv')
 
 if __name__ == '__main__':
     main()
