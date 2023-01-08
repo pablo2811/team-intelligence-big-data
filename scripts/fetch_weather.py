@@ -1,5 +1,6 @@
-import pandas as pd
 from datetime import date, timedelta
+
+import pandas as pd
 import requests
 
 
@@ -23,8 +24,9 @@ def main():
     cols = df.columns.tolist()
     cols[1], cols[-1] = cols[-1], cols[1]
 
-    df = df[cols]
-    df.to_csv(f'./data/weather/Seattle-weather.csv')
+    df = df[["datetime", "day", "temp", "humidity", "windgust", "pressure", "visibility"]]
+    df.to_json(f'./data/weather/Seattle-weather.json', orient='records')
+
 
 if __name__ == '__main__':
     main()
